@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Leonardo Macedo</title>
+</head>
+<body>
+
+    <div class="particulas"></div>
+
+    <nav class="navegacao">
+        <ul class="menu">
+            <li>
+                <a href="#inicio" class="menu-link">Inicio</a>
+            </li>
+            <li>
+                <a href="#sobre" class="menu-link">Sobre</a>
+            </li>
+            <li>
+                <a href="#projetos" class="menu-link">Projetos</a>
+            </li>
+            <li>
+                <a href="#contato" class="menu-link">Contato</a>
+            </li>
+        </ul>
+    </nav><!--Menu-->
+
+    <main id="inicio" class="cabecalho">
+            <img src="img/perfil.webp" alt=" imagem de perfil Leonardo" class="foto-perfil">
+            <h1>Leonardo Macedo</h1>
+            <p class="cabecalho-sub-titulo">Desenvolvedor Front End</p>
+    </main> <!--Cabeçalho-->
+
+    <section id="sobre" class="sobre">
+            <h2 class="sobre-titulo">Sobre mim</h2>
+            <div class="sobre-caixa">
+                <p class="sobre-paragrafo">
+                    Sou desenvolvedor front-end apaixonado por criar experiências digitais incríveis. Com sólida experiência em HTML, CSS e JavaScript, me dedico a transformar ideias em interfaces funcionais e visualmente atrativas. Sempre em busca de desafios, meu foco é otimizar a performance e a usabilidade, garantindo que cada projeto entregue um resultado moderno e intuitivo.
+                </p>
+            </div>
+    </section>  <!--sobre mim -->
+
+    <section id="projetos" class="projetos">
+            <h2 class="projetos-titulo">Meus Projetos</h2>
+
+            <div class="projetos-caixa">
+                <div class="projetos-card">
+                    <img src="img/projeto1.png" alt="Foto de carro do projeto realizado" class="projetos-imagem">
+                    <div class="caixa-texto-projetos">
+                        <h3 class="info-projetos">Loja de Carros</h3>
+                        <p class="paragrafo-projetos">Loja virtual moderna</p>
+                    </div>
+                </div>
+                <div class="projetos-card">
+                    <img src="img/projeto2.png" alt="pagina de viagem" class="projetos-imagem">
+                    <div class="caixa-texto-projetos">
+                        <h3 class="info-projetos">Site de Viagens</h3>
+                        <p class="paragrafo-projetos">Loja virtual moderna</p>
+                    </div>
+                </div>
+                <div class="projetos-card">
+                    <img src="img/projeto3.png" alt="Clone microsoft" class="projetos-imagem">
+                    <div class="caixa-texto-projetos">
+                        <h3 class="info-projetos">Microsoft</h3>
+                        <p class="paragrafo-projetos">Loja virtual moderna</p>
+                    </div>
+                </div>
+            </div>
+    </section><!--Projetos-->
+
+    <section id="contato" class="contato">
+            <h2 class="contato-titulo">Entre em Contato</h2>
+            <form class="formulario-contato" id="formulario" onsubmit="enviarWhats(event)">
+                <div class="grupo-form">
+                    <input placeholder="Nome" class="campo-form" id="nome">
+                </div>
+                <div class="grupo-form">
+                    <textarea placeholder="Digite a sua Mensagem" class="campo-form" rows="6" id="mensagem"></textarea>
+                </div>
+
+                <button type="submit" class="botao-form">Enviar Whatsapp</button>
+
+            </form>
+    </section><!--Contato -->
+    <script>
+        function enviarWhats (event){
+
+            event.preventDefault()
+
+
+
+            const nome = document.getElementById('nome').value //capturando o que digitou no nome
+            const mensagem = document.getElementById('mensagem').value //capturando o que digitou na mensagem
+            const telefone = '5561996652066' //pegando o telefone na qual recebrá todas as mensagens 
+
+            const texto = `Olá! Me chamo ${nome}, ${mensagem}` // Criando o formato para ser enviado no whatsapp
+            const msgFormatada = encodeURIComponent(texto)//Corrigir os espaços para ser enviado via whatsapp
+
+            const url = `https://api.whatsapp.com/send?phone=${telefone}&text=${msgFormatada}`
+
+            window.open(url,'_blank') //abrir a url no navegador em uma nova aba
+        }
+    </script>
+
+</body>
+</html>
