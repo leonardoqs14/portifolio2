@@ -270,6 +270,10 @@ textarea{
 /* Responsivo */
 @media screen and (max-width: 1020px){
 
+    .menu{
+        gap: 1rem;
+    }
+
 
     .foto-perfil{
         width: 250px;
@@ -284,5 +288,5 @@ textarea{
         text-align: center;
     }
 
-    
+
 }
